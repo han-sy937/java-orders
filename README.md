@@ -63,7 +63,7 @@ The table layouts are as follows
   * Orders has a Many to One relationship to Customers and
   * Customers has a One to Many relationship to Orders
 
-* Orders has a many to many relationship with payments
+* Orders has a many to many relationship with payment
   * multiple orders can use the same payment type and an order can have multiple payment types.
   * For example, you can use both gift card and credit card to pay for an order.
 

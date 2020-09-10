@@ -9,6 +9,9 @@ import com.lambdaschool.crudyorders.repositories.AgentsRepository;
 import com.lambdaschool.crudyorders.repositories.CustomersRepository;
 import com.lambdaschool.crudyorders.repositories.OrdersRepository;
 import com.lambdaschool.crudyorders.repositories.PaymentRepository;
+import com.lambdaschool.crudyorders.services.CustomerService;
+import com.lambdaschool.crudyorders.services.OrderService;
+import com.lambdaschool.crudyorders.services.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -29,6 +32,9 @@ public class SeedData implements CommandLineRunner {
     @Autowired
     private CustomersRepository custrepos;
 
+    @Autowired
+    private CustomerService custService;
+
     /**
      * Connects the agents table to this SeedData method
      */
@@ -40,6 +46,9 @@ public class SeedData implements CommandLineRunner {
      */
     @Autowired
     private OrdersRepository ordersrepos;
+
+    @Autowired
+    private OrderService orderService;
 
     /**
      * Connects the payment table to this SeedData method
@@ -59,6 +68,10 @@ public class SeedData implements CommandLineRunner {
     @Transactional
     @Override
     public void run(String[] args) throws Exception {
+
+        custService.deleteAllCustomers();
+        orderService.deleteAllOrders();
+
         Payment pay1 = new Payment("Cash");
         Payment pay2 = new Payment("Gift Card");
         Payment pay3 = new Payment("Credit Card");

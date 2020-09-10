@@ -11,5 +11,10 @@ public interface CustomerService {
     Customer findCustomerById(long id);
     Customer save(Customer customer);
 
+    void deleteAllCustomers();
 
+
+    void delete(long custcode);
+
+    Customer update(Customer customer, long restid);
 }
